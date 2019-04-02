@@ -1,0 +1,18 @@
+  DocValues的种类 
+
+在lucene的枚举类DocValuesType 中，我们可以看见它声明了六个常量： 
+1,  NONE  不开启docvalue时的状态 
+2,  NUMERIC  单个数值类型的docvalue主要包括（int，long，float，double） 
+3,  BINARY    二进制类型值对应不同的codes最大值可能超过32766字节， 
+4,  SORTED  有序增量字节存储，仅仅存储不同部分的值和偏移量指针，值必须小于等于32766字节
+5,  SORTED_NUMERIC   存储数值类型的有序数组列表 
+6,  SORTED_SET     可以存储多值域的docvalue值，但返回时，仅仅只能返回多值域的第一个docvalue 
+
+通常有四种docvalue存储场景： 
+
+A： 字符串或UUID字段+单值 会选择SORTED作为docvalue存储 
+B： 字符串或UUID字段+多值 会选择SORTED_SET作为docvalue存储 
+C：数值或日期或枚举字段+单值 会选择NUMERIC 作为docvalue存储 
+D：数值或日期或枚举字段+多值 会选择SORTED_SET作为docvalue存储 
+
+注意，分词字段存储docvalue是没有意义的 
