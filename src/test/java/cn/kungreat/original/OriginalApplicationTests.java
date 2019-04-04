@@ -69,12 +69,37 @@ public class OriginalApplicationTests {
             }
         }
     }
+    
+    /*
+    * StringField  TextField 这种自带的是已经定意好了 一定的类型结构 
+    * 我们也可以使用 自定意的类型结构
+    *
+         FieldType fieldType = new FieldType();
+         fieldType.setIndexOptions(IndexOptions.DOCS);
+         fieldType.setStored(true);
+
+        IndexOptions.DOCS  只有文档会被索引，词频和位置都会被省略
+        DOCS_AND_FREQS  文档和词频被索引，位置省略
+        DOCS_AND_FREQS_AND_POSITIONS  文档 词频 位置都被索引
+        DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS  除了文档和词频位置还有偏移量也会被索引
+        NONE   不索引
+
+        stored:     是否存储。
+        tokenized:  是否分词。
+        storeTermVectors： 是否存储向量信息。
+        storeTermVectorOffsets    向量位移
+        storeTermVectorPositions  向量偏移
+        storeTermVectorPayloads： 是否存储Payloads信息。
+        omitNorms：  是否存储norm信息，用于评分Boost值和会处理。
+    */
+    
     @Test
     public void creat(){
         //在 6.6 以上版本中 version 不再是必要的
         Version version = Version.LUCENE_7_1_0;
         //创建索引写入配置
         IndexWriterConfig indexWriterConfig = new IndexWriterConfig(analyzer);
+        indexWriterConfig.setOpenMode(IndexWriterConfig.OpenMode.CREATE_OR_APPEND);
         //创建索引写入对象
         IndexWriter indexWriter = null;
         try {

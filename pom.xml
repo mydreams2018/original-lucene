@@ -43,6 +43,12 @@
             <artifactId>lucene-core</artifactId>
             <version>7.1.0</version>
         </dependency>
+        <!--smartcn 中文分词器 SmartChineseAnalyzer  smartcn分词器 需要lucene依赖 且和lucene版本同步-->
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-analyzers-smartcn</artifactId>
+            <version>7.1.0</version>
+        </dependency>
         <!--ik-analyzer 中文分词器-->
         <dependency>
             <groupId>cn.bestwu</groupId>
