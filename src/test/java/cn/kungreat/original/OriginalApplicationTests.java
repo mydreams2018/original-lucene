@@ -5,7 +5,6 @@ import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.document.*;
 import org.apache.lucene.index.*;
 import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
-import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.*;
 import org.apache.lucene.search.highlight.*;
@@ -44,6 +43,7 @@ public class OriginalApplicationTests {
         // 获得当前运行项目路径
         String path = ClassUtils.getDefaultClassLoader().getResource("").getPath();
         System.out.println(path);
+        System.out.println(System.lineSeparator());
     }
     @Before
     public void init(){
@@ -364,5 +364,7 @@ public class OriginalApplicationTests {
             }
         }
     }
+
+
 
 }
