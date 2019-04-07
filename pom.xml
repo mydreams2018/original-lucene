@@ -67,6 +67,12 @@
             <artifactId>lucene-highlighter</artifactId>
             <version>7.1.0</version>
         </dependency>
+        <!-- Apache Tika实现内容分析 -->
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-parsers</artifactId>
+            <version>1.18</version>
+        </dependency>
     </dependencies>
 
     <build>
